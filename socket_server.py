@@ -1,3 +1,6 @@
+'''
+This program runs a socket server to receive data from sensor and visualize the data with matplotlib.pyplot.
+'''
 import socket
 import json
 import numpy as np
