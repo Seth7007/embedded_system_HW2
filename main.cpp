@@ -1,4 +1,11 @@
-//embedded system HW2
+/* 
+    This is main.cpp of embedded system homework2.
+    This code is modified from an mbed os socket example, the URL of the original example is shown below.
+    URL: https://github.com/ARMmbed/mbed-os-example-sockets
+    To run this program, firstly, the original example program should be imported to mbed studio.
+    Secondly, replace the original main.cpp with this one, then the program is ready to run.
+    For more information, please check README.md
+*/
 #include "mbed.h"
 #include "wifi_helper.h"
 #include "mbed-trace/mbed_trace.h"
@@ -34,7 +41,7 @@ class SocketDemo {
 #if MBED_CONF_APP_USE_TLS_SOCKET
     static constexpr size_t REMOTE_PORT = 443; // tls port
 #else
-    static constexpr size_t REMOTE_PORT = 7414; // standard HTTP port
+    static constexpr size_t REMOTE_PORT = 7777; // standard HTTP port
 #endif // MBED_CONF_APP_USE_TLS_SOCKET
 
 public:
@@ -123,7 +130,7 @@ public:
         
         while (1){
             button.fall(&button_pressed);
-            if(button_switch!=0) break;
+            if(button_switch!=0) break;// if user presses BUTTON1, stop sending data to server and end the program
             ++sample_num;
             BSP_ACCELERO_AccGetXYZ(pDataXYZ);
             BSP_GYRO_GetXYZ(gDataXYZ);
